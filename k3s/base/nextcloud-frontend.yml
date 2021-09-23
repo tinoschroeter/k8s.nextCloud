@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nextcloud-server
+  labels:
+    app: nextcloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      pod-label: nextcloud-server-pod
+  template:
+    metadata:
+      labels:
+        pod-label: nextcloud-server-pod
+    spec:
+      containers:
+      - name: nextcloud
+        image: nextcloud:22.1.0-apache
+        resources:
+          requests:
+            memory: "150Mi"
+            cpu: "100m"
+          limits:
+            memory: "220Mi"
+            cpu: "480m"
+        volumeMounts:
+        - name: server-storage
+          mountPath: /var/www/html
+          subPath: server-data
+      volumes:
+      - name: server-storage
+        persistentVolumeClaim:
+          claimName: nextcloud-shared-storage-claim 

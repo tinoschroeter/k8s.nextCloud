@@ -1,0 +1,5 @@
+namespace: nextcloud
+resources:
+  - nextcloud-pvc.yaml
+  - service-frontend.yml
+  - nextcloud-frontend.yml
