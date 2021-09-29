@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nextcloud
-        image: nextcloud:22.1.0-apache
+        image: nextcloud:22.1.1-apache
         resources:
           requests:
             memory: "150Mi"
