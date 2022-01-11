@@ -23,7 +23,7 @@ spec:
             cpu: "100m"
           limits:
             memory: "220Mi"
-            cpu: "780m"
+            cpu: "980m"
         volumeMounts:
         - name: server-storage
           mountPath: /var/www/html
